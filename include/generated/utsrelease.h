@@ -1,0 +1,2 @@
+#define UTS_RELEASE "3.18.19-ge0a3a2b23"
+#define UTS_RELEASE_MOD "3.18.19"
