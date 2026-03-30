@@ -4,12 +4,14 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v4
 
-    - name: Install cross compiler
-      run: sudo apt-get install -y gcc-aarch64-linux-gnu
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gcc-aarch64-linux-gnu make bc libssl-dev
 
     - name: Build kernel
       run: |
@@ -23,4 +25,3 @@ jobs:
       with:
         name: Image.gz
         path: arch/arm64/boot/Image.gz
-
